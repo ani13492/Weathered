@@ -88,6 +88,7 @@ dependencies {
 
     // Kodein
     implementation 'org.kodein.di:kodein-di-generic-jvm:5.2.0'
+    implementation 'org.kodein.di:kodein-di-framework-android-x:5.2.0'
 
     // Better Datetime
     implementation "com.jakewharton.threetenabp:threetenabp:1.2.4"

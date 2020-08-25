@@ -41,7 +41,7 @@ data class CurrentWeatherEntry(
     val uvIndex: Int,
 
     @ColumnInfo(name="visibility")
-    val visibility: Int,
+    val visibility: Double,
 
     @ColumnInfo(name="weather_code")
     @SerializedName("weather_code")
