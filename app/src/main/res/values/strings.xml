@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Weathered</string>
+    <string name="today_title">Today</string>
+    <string name="settings_title">Settings</string>
+    <string name="week_title">7-Days</string>
+    <string name="loading">Loading...</string>
+</resources>
