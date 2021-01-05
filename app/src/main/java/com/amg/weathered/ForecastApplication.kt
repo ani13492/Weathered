@@ -1,6 +1,7 @@
 package com.amg.weathered
 
 import android.app.Application
+import android.content.Context
 import com.amg.weathered.data.api.ApiWeatherService
 import com.amg.weathered.data.db.ForecastDatabase
 import com.amg.weathered.data.network.ConnectivityInterceptor
@@ -12,6 +13,7 @@ import com.amg.weathered.data.repository.ForecastRepositoryImpl
 import com.amg.weathered.provider.LocationProvider
 import com.amg.weathered.provider.LocationProviderImpl
 import com.amg.weathered.ui.weather.current.CurrentWeatherViewModelFactory
+import com.google.android.gms.location.LocationServices
 import com.jakewharton.threetenabp.AndroidThreeTen
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -32,7 +34,8 @@ class ForecastApplication : Application(), KodeinAware {
         bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
         bind() from singleton { ApiWeatherService(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
-        bind<LocationProvider>() with singleton { LocationProviderImpl() }
+        bind() from provider { LocationServices.getFusedLocationProviderClient(instance<Context>()) }
+        bind<LocationProvider>() with singleton { LocationProviderImpl(instance(), instance()) }
         bind<ForecastRepository>() with singleton { ForecastRepositoryImpl(instance(), instance(), instance(), instance()) }
         bind() from provider { CurrentWeatherViewModelFactory(instance()) }
     }

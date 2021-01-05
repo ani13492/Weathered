@@ -12,7 +12,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-const val API_KEY = "088dfbaa69d213505d73edc13b56e958"
+const val API_KEY = "3d01a9af9f8252765b9673ad1d1e3dfe"
 
 interface ApiWeatherService {
 
